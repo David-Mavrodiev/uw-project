@@ -1,0 +1,70 @@
+﻿@model UnityWiki.Web.Models.HomeIndexViewModel
+
+@using (Html.BeginForm("SearchResult", "Article", FormMethod.Get))
+{
+    <div id="search-container" class="container">
+        <div class="row">
+            <div class="search">
+                <input name="title" type="text" class="form-control input-lg" maxlength="64" placeholder="Search" />
+                <button type="submit" class="btn btn-primary btn-lg">Search</button>
+            </div>
+        </div>
+    </div>
+}
+
+<div class="latest-articles">
+    <h1>Latest articles</h1>
+    <div class="row">
+        @foreach (var article in Model.Articles)
+        {
+            <div class="col-xs-2 articles-single-article">
+                <a href="/Article/Detail/@article.Id">
+                    <div class="single-article-image-containter">
+                        <div class="single-article-category">
+                            @article.Category
+                        </div>
+                        <img class="single-article-image" src="https://blogs.unity3d.com/wp-content/themes/unity/images/large.jpg">
+                    </div>
+
+                    <div class="single-article-title" title="@article.Title">
+                        @article.Title
+                    </div>
+
+                    <div class="single-article-author">
+                        @article.DateCreated
+                    </div>
+
+                    <div class="single-article-content">
+                        @article.Description
+                    </div>
+                </a>
+            </div>
+        }
+    </div>
+</div>
+
+<div class="container">
+    <h1>Contact Address</h1><br>
+    <div class="row text-center">
+        <div class="col-sm-3 col-xs-6 first-box">
+            <h1><span class="glyphicon glyphicon-earphone"></span></h1>
+            <h3>Phone</h3>
+            <p>N/A</p><br>
+        </div>
+        <div class="col-sm-3 col-xs-6 second-box">
+            <h1><span class="glyphicon glyphicon-home"></span></h1>
+            <h3>Location</h3>
+            <p>N/A</p><br>
+        </div>
+        <div class="col-sm-3 col-xs-6 third-box">
+            <h1><span class="glyphicon glyphicon-send"></span></h1>
+            <h3>E-mail</h3>
+            <p>gogo170109@gmail.com</p><br>
+        </div>
+        <div class="col-sm-3 col-xs-6 fourth-box">
+            <h1><span class="glyphicon glyphicon-leaf"></span></h1>
+            <h3>Web</h3>
+            <p>www.unity-wiki.com</p><br>
+        </div>
+    </div>
+</div>
